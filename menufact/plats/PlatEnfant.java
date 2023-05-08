@@ -6,8 +6,8 @@ public class PlatEnfant extends PlatAuMenu{
     public PlatEnfant() {
     }
 
-    public PlatEnfant(int code, String description, double prix, double proportion) {
-        super(code, description, prix);
+    public PlatEnfant(int code, String description, double prix, Recette recette, double proportion) {
+        super(code, description, prix, recette);
         this.proportion = proportion;
     }
 

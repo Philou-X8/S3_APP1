@@ -3,6 +3,7 @@ package menufact.platsBuilder;
 import ingredients.Ingredient;
 import menufact.plats.PlatAuMenu;
 import menufact.platsBuilder.PlatBuilder;
+import menufact.plats.Recette;
 
 public abstract class PlatBuilder {
     protected int code;
@@ -23,14 +24,15 @@ public abstract class PlatBuilder {
         this.description = descrip;
         this.prix = prix;
     }
+    public void constructIngrediant(String nom, String descrip, Ingredient ingredient, double qty){
+        //TODO
+        ingredients.ajouteIngredient(ingredient, qty);
+    }
     public void constructSante(double k, double c, double g){
 
     }
     public void constructEnfant(double p){
 
-    }
-    public void constructIngrediant(String nom, String descrip, Ingredient ingredients, double qty){
-        //TODO
     }
     abstract PlatAuMenu getPlat();
 

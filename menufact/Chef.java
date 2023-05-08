@@ -1,7 +1,7 @@
 package menufact;
 
-import menufact.plats.EtatPlat;
-import menufact.plats.EtatPlatCommande;
+import menufact.plats.etats.EtatPlat;
+import menufact.plats.etats.EtatPlatCommande;
 import menufact.plats.PlatChoisi;
 
 public class Chef

@@ -1,13 +1,14 @@
-package menufact.plats;
+package menufact.plats.etats;
 
 import menufact.Chef;
 
-public class EtatPlatTermine implements EtatPlat
+public class EtatPlatImpossible implements EtatPlat
 {
     private Chef contexte;
-    public EtatPlatTermine(Chef boss)
+
+    public EtatPlatImpossible()
     {
-        contexte = boss;
+
     }
     @Override
     public void recevoirCommande()
@@ -22,15 +23,14 @@ public class EtatPlatTermine implements EtatPlat
     }
 
     @Override
-    public void servir()
-    {
-        contexte.changerEtat(new EtatPlatServi(contexte));
+    public void servir() {
+
     }
 
     @Override
-    public void setContext(Chef boss)
-    {
+    public void setContext(Chef boss) {
         contexte = boss;
+
     }
 
     @Override

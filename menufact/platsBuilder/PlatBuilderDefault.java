@@ -8,7 +8,7 @@ public class PlatBuilderDefault extends PlatBuilder {
         super(); // call parent constructor
     }
     public PlatAuMenu getPlat(){
-        PlatAuMenu plat = new PlatAuMenu(this.code, this.description, this.prix, this.recette);
+        PlatAuMenu plat = new PlatAuMenu(this.code, this.description, this.prix, this.ingredients);
 
         return plat;
     }

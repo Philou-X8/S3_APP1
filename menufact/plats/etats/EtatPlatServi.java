@@ -1,12 +1,12 @@
-package menufact.plats;
+package menufact.plats.etats;
 
 import menufact.Chef;
 
-public class EtatPlatPreparation implements EtatPlat
+public class EtatPlatServi implements EtatPlat
 {
     private Chef contexte;
 
-    public EtatPlatPreparation(Chef boss)
+    public EtatPlatServi(Chef boss)
     {
         contexte = boss;
     }
@@ -16,9 +16,8 @@ public class EtatPlatPreparation implements EtatPlat
     }
 
     @Override
-    public void cuisiner()
-    {
-        contexte.changerEtat(new EtatPlatTermine(contexte));
+    public void cuisiner() {
+
     }
 
     @Override

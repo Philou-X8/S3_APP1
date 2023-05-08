@@ -4,14 +4,14 @@ import ingredients.exceptions.IngredientException;
 
 public class IngredientInventaire {
     private Ingredient ingredient;
-    private int quantite;
+    private double quantite;
 
-    public IngredientInventaire(Ingredient ingredient, int quantite) {
+    public IngredientInventaire(Ingredient ingredient, double quantite) {
         this.ingredient = ingredient;
         this.quantite = quantite;
     }
 
-    public int getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 

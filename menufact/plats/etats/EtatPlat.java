@@ -1,4 +1,4 @@
-package menufact.plats;
+package menufact.plats.etats;
 import menufact.Chef;
 
 public interface EtatPlat

@@ -4,11 +4,13 @@ public class PlatAuMenu {
     private int code;
     private String description;
     private double prix;
+    private Recette ingredients;
 
-    public PlatAuMenu(int code, String description, double prix) {
+    public PlatAuMenu(int code, String description, double prix, Recette recette) {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.ingredients = recette;
     }
 
     public PlatAuMenu() {

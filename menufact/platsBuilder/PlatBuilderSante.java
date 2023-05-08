@@ -1,6 +1,7 @@
 package menufact.platsBuilder;
 
 import menufact.plats.PlatAuMenu;
+import menufact.plats.PlatSante;
 import menufact.platsBuilder.PlatBuilder;
 
 public class PlatBuilderSante extends PlatBuilder {
@@ -20,7 +21,7 @@ public class PlatBuilderSante extends PlatBuilder {
         gras = g;
     }
     public PlatAuMenu getPlat(){
-        PlatAuMenu plat = new PlatSante(this.code, this.description, this.prix, this.recette, kcal, chol, gras);
+        PlatAuMenu plat = new PlatSante(this.code, this.description, this.prix, this.ingredients, kcal, chol, gras);
 
         return plat;
     }
