@@ -9,7 +9,7 @@ import menufact.plats.PlatSante;
 
 public class TestMenuFact02 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FactureException {
         boolean trace = true;
 
         TestMenuFact02 t = new TestMenuFact02();
@@ -281,8 +281,7 @@ public class TestMenuFact02 {
         System.out.println(f1);
     }
 
-    private void test9_PayerFacture(Facture f1)
-    {
+    private void test9_PayerFacture(Facture f1) throws FactureException {
         System.out.println("===test9_PayerFacture");
 
         System.out.println("Avant payer la facture");
