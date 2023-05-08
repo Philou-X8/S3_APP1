@@ -6,10 +6,8 @@ import java.util.ArrayList;
 
 public class PlatChoisiFactory {
     private ArrayList<PlatChoisi> listePlatChoisi;
-    private Menu contexteMenu;
-    public PlatChoisiFactory(ArrayList<PlatChoisi> parentList, Menu parentMenu){
-        listePlatChoisi = parentList;
-        contexteMenu = parentMenu;
+    public PlatChoisiFactory(){
+        listePlatChoisi = new ArrayList<PlatChoisi>();
     }
     public PlatChoisi ajoutPlat(PlatAuMenu plat){
         for(PlatChoisi platChoisi : listePlatChoisi){ // vérifier que le plat n'est pas déjà dans la liste

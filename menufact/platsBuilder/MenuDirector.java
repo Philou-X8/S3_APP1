@@ -1,6 +1,8 @@
 package menufact.platsBuilder;
 
 import ingredients.Ingredient;
+import ingredients.IngredientFactory;
+import ingredients.TypeIngredient;
 import menufact.plats.PlatAuMenu;
 
 public class MenuDirector {
@@ -18,8 +20,8 @@ public class MenuDirector {
         builder.constructInformation(id, descrip, prix);
     }
 
-    public void constructIngrediant(Ingredient ingredient, double qty){
-        builder.constructIngredient(ingredient, qty);
+    public void constructIngrediant(String nom, String description, TypeIngredient type, double qty){
+        builder.constructIngredient(IngredientFactory.createIngredient(nom, description, type), qty);
     }
     public void constructEnfant(double propotion){
         builder.constructEnfant(propotion);

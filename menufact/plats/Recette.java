@@ -2,6 +2,7 @@ package menufact.plats;
 
 import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
+import inventaire.Inventaire;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,14 @@ public class Recette {
         ingredients = new ArrayList<>();
     }
     public void ajouteIngredient(Ingredient ingredient, double qty){
-        //TODO: check if ingredient is already in Inventaire
         ingredients.add(new IngredientInventaire(ingredient, qty));
+    }
+    public boolean verifierIngredientDispo(){
+        for(IngredientInventaire i : ingredients){
+            if( ! Inventaire.getInstance().hasIngredient(i.getIngredient())){
+                return false;
+            }
+        }
+        return true;
     }
 }

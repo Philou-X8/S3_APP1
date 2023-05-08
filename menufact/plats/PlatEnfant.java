@@ -10,6 +10,10 @@ public class PlatEnfant extends PlatAuMenu{
         super(code, description, prix, recette);
         this.proportion = proportion;
     }
+    public PlatEnfant(int code, String description, double prix, double proportion) {
+        super(code, description, prix, new Recette());
+        this.proportion = proportion;
+    }
 
     public double getProportion() {
         return proportion;

@@ -1,5 +1,7 @@
 package ingredients;
 
+import inventaire.Inventaire;
+
 public class IngredientFactory {
     public IngredientFactory(){
 
@@ -26,6 +28,7 @@ public class IngredientFactory {
         }
         ingredient.setNom(nom);
         ingredient.setDescription(description);
+        Inventaire.getInstance().addIngredient(ingredient, 0.0);
         return ingredient;
     }
 }

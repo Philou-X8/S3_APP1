@@ -6,14 +6,21 @@ public class PlatAuMenu {
     private double prix;
     private Recette ingredients;
 
+    public PlatAuMenu(){
+
+    }
+
     public PlatAuMenu(int code, String description, double prix, Recette recette) {
         this.code = code;
         this.description = description;
         this.prix = prix;
         this.ingredients = recette;
     }
-
-    public PlatAuMenu() {
+    public PlatAuMenu(int code, String description, double prix) {
+        this.code = code;
+        this.description = description;
+        this.prix = prix;
+        this.ingredients = new Recette();
     }
 
     @Override

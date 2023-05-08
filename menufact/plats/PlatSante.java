@@ -13,6 +13,12 @@ public class PlatSante extends PlatAuMenu {
         this.chol = chol;
         this.gras = gras;
     }
+    public PlatSante(int code, String description, double prix, double kcal, double chol, double gras) {
+        super(code, description, prix, new Recette());
+        this.kcal = kcal;
+        this.chol = chol;
+        this.gras = gras;
+    }
 
     public PlatSante() {
     }
