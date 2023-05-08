@@ -10,8 +10,8 @@ public class Recette {
     public Recette(){
         ingredients = new ArrayList<>();
     }
-    public void ajouteIngredient(Ingredient ing, double qty){
+    public void ajouteIngredient(Ingredient ingredient, double qty){
         //TODO: check if ingredient is already in Inventaire
-        ingredients.add(new IngredientInventaire(ing, qty));
+        ingredients.add(new IngredientInventaire(ingredient, qty));
     }
 }
