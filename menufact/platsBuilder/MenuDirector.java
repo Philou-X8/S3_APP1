@@ -1,7 +1,7 @@
 package menufact.platsBuilder;
 
 import ingredients.Ingredient;
-import menufact.platsBuilder.PlatBuilder;
+import menufact.plats.PlatAuMenu;
 
 public class MenuDirector {
     private PlatBuilder builder;
@@ -15,20 +15,20 @@ public class MenuDirector {
     }
 
     public void constructInformation(int id, String descrip, double prix){
-
+        builder.constructInformation(id, descrip, prix);
     }
 
-    public void constructIngrediant(String nom, String descrip, Ingredient ingredient, int qty){
-
+    public void constructIngrediant(Ingredient ingredient, double qty){
+        builder.constructIngredient(ingredient, qty);
     }
     public void constructEnfant(double propotion){
-
+        builder.constructEnfant(propotion);
     }
     public void constructSante(double kcal, double chol, double gras){
-
+        builder.constructSante(kcal, chol, gras);
     }
-    public void getResult(){
-        return ;
+    public PlatAuMenu getResult(){
+        return builder.getPlat();
     }
 
 //+getResult() : PlatAuMenu
