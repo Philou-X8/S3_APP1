@@ -3,8 +3,8 @@ package ingredients;
 import ingredients.quantite.Quantite;
 import ingredients.quantite.QuantiteMass;
 
-public class Fruit extends Ingredient{
-    public Fruit() {
+public class Epice extends Ingredient{
+    public Epice() {
         setTypeIngredient(TypeIngredient.FRUIT);
     }
     @Override

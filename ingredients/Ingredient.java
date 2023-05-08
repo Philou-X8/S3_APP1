@@ -1,5 +1,9 @@
 package ingredients;
 
+import ingredients.quantite.Quantite;
+import ingredients.quantite.QuantiteMass;
+import ingredients.quantite.QuantiteVolume;
+
 public class Ingredient {
     private String nom;
     private String description;
@@ -27,5 +31,9 @@ public class Ingredient {
 
     public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
+    }
+
+    public Quantite getTypeQuantite(){
+        return new QuantiteMass();
     }
 }
