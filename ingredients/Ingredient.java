@@ -36,4 +36,9 @@ public class Ingredient {
     public Quantite getTypeQuantite(){
         return new QuantiteMass();
     }
+
+    @Override
+    public String toString(){
+        return "Type " + typeIngredient.toString() + ": " + nom + " (" + description + ")";
+    }
 }

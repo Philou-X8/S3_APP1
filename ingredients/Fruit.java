@@ -11,4 +11,5 @@ public class Fruit extends Ingredient{
     public Quantite getTypeQuantite(){
         return new QuantiteMass();
     }
+
 }
