@@ -14,6 +14,9 @@ public class IngredientInventaire {
     public double getQuantite() {
         return quantite;
     }
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
 
     public void setQuantite(int quantite) throws IngredientException{
 
