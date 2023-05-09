@@ -44,4 +44,8 @@ public class EtatFactureOuverte implements EtatFacture
     {
         bill.setEtat(new EtatFactureFermer(bill));
     }
+    @Override
+    public String toString() {
+        return "EtatFactureOuvert";
+    }
 }

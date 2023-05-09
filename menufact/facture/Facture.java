@@ -148,7 +148,7 @@ public class Facture {
         return "menufact.facture.Facture{" +
                 "date=" + date +
                 ", description='" + description + '\'' +
-                ", etat=" + etat +
+                ", etat=" + etat.toString() +
                 ", platchoisi=" + platchoisi +
                 ", courant=" + courant +
                 ", client=" + client +
@@ -187,5 +187,9 @@ public class Facture {
         factureGenere += "          Le total est de:   " + total() + "\n";
 
         return factureGenere;
+    }
+    public ArrayList<PlatChoisi> getAllPlatchoisit()
+    {
+        return platchoisi;
     }
 }

@@ -132,6 +132,7 @@ class SenarioTest {
     }
 
     @Test
-    void platPrecedentMenu() {
+    void platPrecedentMenu()
+    {
     }
 }

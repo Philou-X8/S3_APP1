@@ -42,4 +42,8 @@ public class EtatFacturePayer implements EtatFacture
     {
         throw new FactureException("La facture à l'état payer ne peux pas être fermer ");
     }
+    @Override
+    public String toString() {
+        return "EtatFacturePayer";
+    }
 }

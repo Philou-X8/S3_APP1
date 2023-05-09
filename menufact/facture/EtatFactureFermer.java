@@ -42,4 +42,8 @@ public class EtatFactureFermer implements EtatFacture
     {
         throw new FactureException("La facture à l'état Fermer ne peux pas être fermer à nouveau ");
     }
+    @Override
+    public String toString() {
+        return "EtatFactureFermer";
+    }
 }

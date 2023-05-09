@@ -28,7 +28,6 @@ public class Chef
     }
     private boolean verifierIngrediant(PlatChoisi verif)
     {
-
         return false;
     }
 
