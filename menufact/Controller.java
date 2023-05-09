@@ -35,11 +35,12 @@ public class Controller {
 
         }
     }
-    public void choisirPlat(){
+    public void choisirPlat() throws FactureException
+    {
         try{
             facture.ajoutePlat(platCreation.ajoutPlat(menu.platCourant()));
         }catch (FactureException e){
-
+            throw e;
         }
     }
     public void platCourantMenu(){

@@ -22,4 +22,9 @@ public class Recette {
         }
         return true;
     }
+
+    @Override
+    public String toString(){
+        return "Recette : " + ingredients;
+    }
 }

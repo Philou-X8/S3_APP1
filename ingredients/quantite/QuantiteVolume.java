@@ -11,6 +11,7 @@ public class QuantiteVolume  implements Quantite {
     public void setQuantite(double qty){
         quantite = qty;
     }
+    @Override
     public String toString(){
         return String.valueOf(quantite) + " L";
     }

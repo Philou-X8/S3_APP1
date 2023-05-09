@@ -11,6 +11,7 @@ public class QuantiteMass implements Quantite {
     public void setQuantite(double qty){
         quantite = qty;
     }
+    @Override
     public String toString(){
         return String.valueOf(quantite) + " kg";
     }

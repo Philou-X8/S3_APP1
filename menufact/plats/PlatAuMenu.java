@@ -29,6 +29,7 @@ public class PlatAuMenu {
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
+                ", recette=" + ingredients +
                 "}\n";
     }
 

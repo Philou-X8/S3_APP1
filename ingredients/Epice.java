@@ -5,7 +5,7 @@ import ingredients.quantite.QuantiteMass;
 
 public class Epice extends Ingredient{
     public Epice() {
-        setTypeIngredient(TypeIngredient.FRUIT);
+        setTypeIngredient(TypeIngredient.EPICE);
     }
     @Override
     public Quantite getTypeQuantite(){
