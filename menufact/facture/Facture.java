@@ -203,4 +203,12 @@ public class Facture {
     {
         return platchoisi;
     }
+
+    public Client getClient() {
+        return client;
+    }
+    public Chef getChef(){
+        return chef;
+    }
+
 }

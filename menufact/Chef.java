@@ -30,5 +30,19 @@ public class Chef
     {
         return false;
     }
+    public EtatPlat getEtatPlat()
+        {
+        return etatPlat;
+        }
 
+    public PlatChoisi getPlatActuel() {
+        return platActuel;
+    }
+
+    @Override
+    public String toString() {
+        return "Chef -> Etat plat:" +
+                etatPlat.toString() +
+                ", PlatChoisi : " + platActuel ;
+    }
 }

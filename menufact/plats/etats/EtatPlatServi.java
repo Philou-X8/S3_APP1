@@ -35,4 +35,8 @@ public class EtatPlatServi implements EtatPlat
     public EtatPlat getState() {
         return this;
     }
+    @Override
+    public String toString() {
+        return "Chef -> EtatPlatServi";
+    }
 }

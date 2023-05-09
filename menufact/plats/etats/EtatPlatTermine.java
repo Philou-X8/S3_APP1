@@ -37,4 +37,8 @@ public class EtatPlatTermine implements EtatPlat
     public EtatPlat getState() {
         return this;
     }
+    @Override
+    public String toString() {
+        return "Chef -> EtatPlatTerminer";
+    }
 }

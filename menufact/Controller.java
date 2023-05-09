@@ -3,6 +3,7 @@ package menufact;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisiFactory;
 
 public class Controller {
@@ -43,19 +44,21 @@ public class Controller {
             throw e;
         }
     }
-    public void platCourantMenu(){
+    public PlatAuMenu platCourantMenu(){
         System.out.println(menu.platCourant());
+                return menu.platCourant();
     }
-    public void platSuivantMenu(){
+    public PlatAuMenu platSuivantMenu(){
         try{
             menu.positionSuivante();
         }catch (MenuException e){
 
         }
+        return menu.platCourant();
     }
     public void platPrecedentMenu(){
         try{
-            menu.positionSuivante();
+            menu.positionPrecedente();
         }catch (MenuException e){
 
         }

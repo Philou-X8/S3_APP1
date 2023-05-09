@@ -39,4 +39,9 @@ public class EtatPlatCommande implements EtatPlat
     {
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Chef -> EtatPlatCommander";
+    }
 }
