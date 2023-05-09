@@ -1,10 +1,14 @@
 package tests;
 
 import ingredients.TypeIngredient;
+import inventaire.Inventaire;
 import menufact.Chef;
 import menufact.Client;
 import menufact.Controller;
 import menufact.Menu;
+import menufact.facture.EtatFactureFermer;
+import menufact.facture.EtatFactureOuverte;
+import menufact.facture.EtatFacturePayer;
 import menufact.facture.Facture;
 import menufact.facture.exceptions.FactureException;
 import menufact.platsBuilder.MenuDirector;
@@ -15,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SenarioTest {
 
@@ -24,16 +29,83 @@ class SenarioTest {
     private Chef chef;
     private MenuDirector menuDirector;
     private Controller controller;
-    @BeforeEach
-    void setUp() {
-        client = new Client(123, "Mr. Client test", "123 456 789");
-        chef = new Chef();
-        facture = new Facture("Facture de test");
-        menu = new Menu("Menu de test");
-        controller = new Controller(facture, menu);
+    private Inventaire inventaire;
 
-        //peupler menu
+    public static void main(String[] args) {
+        SenarioTest senarioTest = new SenarioTest();
+        senarioTest.populateMenu();
+        senarioTest.choisirDesPlat();
+        senarioTest.fermerFacture();
+        senarioTest.payerFacture();
+        senarioTest.genererFacture();
+
+    }
+    public SenarioTest(){
+        constructClient();
+        constructChef();
+        constructFacture();
+        constructMenu();
+        constructDirector();
+        constructInventory();
+        constructController();
+    }
+    @Test
+    void constructClient(){
+        client = new Client(123, "Mr. Client test", "123 456 789");
+        System.out.println("Construct Client:\n" + client);
+        assertEquals(
+                "menufact.Client{idClient=123, nom='Mr. Client test', numeroCarteCredit='123 456 789'}",
+                client.toString()
+        );
+    }
+    @Test
+    void constructChef(){
+        chef = new Chef();
+        System.out.println("Construct Chef:\n" + chef);
+    }
+    @Test
+    void constructFacture(){
+        facture = new Facture("Facture de test");
+        facture.associerClient(this.client);
+        facture.associerChef(this.chef);
+        System.out.println("Construct Facture:\n" + facture);
+    }
+    @Test
+    void constructMenu(){
+        menu = new Menu("Menu de senario de test");
+        System.out.println("Construct Menu:\n" + menu);
+        assertEquals(
+                "menufact.Menu{description='Menu de senario de test', courant=0, plat=\n[]}",
+                menu.toString()
+        );
+    }
+    @Test
+    void constructDirector(){
         menuDirector = new MenuDirector(new PlatBuilderDefault());
+        System.out.println("Construct Menu Director:\n" + menuDirector.getResult().toString());
+        assertEquals(
+                "menufact.plats.PlatAuMenu{code=0, description='No description', prix=0.0, recette=Recette : []}\n",
+                menuDirector.getResult().toString()
+        );
+    }
+    @Test
+    void constructInventory(){
+        inventaire = Inventaire.getInstance();
+        System.out.println("Construct Inventaire:\n" + inventaire);
+        assertEquals(
+                Inventaire.getInstance(),
+                inventaire
+        );
+    }
+    @Test
+    void constructController(){
+        controller = new Controller(facture, menu);
+        System.out.println("Construct Controller:\n" + controller);
+    }
+    @Test
+    void populateMenu(){
+
+        menuDirector.reset(new PlatBuilderDefault());
         menuDirector.constructInformation(1, "plat de test 1 (default)", 23.99);
         menuDirector.constructIngrediant("poulet", "c'est du poulet", TypeIngredient.VIANDE, 10.0);
         menuDirector.constructIngrediant("tomate", "rouge et juteux", TypeIngredient.FRUIT, 2.0);
@@ -69,45 +141,51 @@ class SenarioTest {
                 "PlatEnfant{proportion=0.8} menufact.plats.PlatAuMenu{code=3, description='plat de test 3 (enfant)', prix=16.99, recette=Recette : [Type VIANDE: croquette (miam), 10.0 kg, Type FRUIT: ketchup (sauce de type ketchup), 2.0 kg, Type LAITIER: lait (verre de lait), 0.3 L]}\n",
                 menuDirector.getResult().toString()
         );
-
-        //System.out.println(menu.toString());
-        try {
-            facture.payer();
-        }catch (FactureException e){
-            System.out.println(e.toString());
-        }
-
-    }
-
-    @Test
-    void remplirMenu(){
-
+        System.out.println("populateMenu():\n" + menu);
     }
     @Test
-    void ouvrirFacture() {
-        try {
+    void ouvrirFacture(){
+        System.out.println("openFacture():\n" + facture.getEtat());
+        assertInstanceOf(
+                EtatFactureOuverte.class,
+                facture.getEtat()
+        );
+        try{
             facture.ouvrir();
+            assertInstanceOf(
+                    EtatFactureOuverte.class,
+                    facture.getEtat()
+            );
         }catch (FactureException e){
-            System.out.println(e.toString());
+            System.out.println("(facture deja ouverte)");
         }
     }
-
     @Test
-    void choisirPlat() {
+    void choisirDesPlat(){
+        System.out.println("choisirDesPlat():\n");
         try{
             controller.choisirPlat();
             controller.platSuivantMenu();
-            controller.platSuivantMenu();
             controller.choisirPlat();
+            controller.choisirPlat();
+            controller.platSuivantMenu();
             controller.choisirPlat();
         }catch (FactureException e){
             System.out.println(e.toString());
         }
+
+        System.out.println(facture);
     }
+
     @Test
     void fermerFacture() {
         try {
             facture.fermer();
+            System.out.println("fermerFacture():\n" + facture.getEtat());
+            assertInstanceOf(
+                    EtatFactureFermer.class,
+                    facture.getEtat()
+            );
         }catch (FactureException e){
             System.out.println(e.toString());
         }
@@ -117,22 +195,40 @@ class SenarioTest {
     void payerFacture() {
         try {
             facture.payer();
+            System.out.println("payerFacture():\n" + facture.getEtat());
+            assertInstanceOf(
+                    EtatFacturePayer.class,
+                    facture.getEtat()
+            );
         }catch (FactureException e){
             System.out.println(e.toString());
         }
     }
-
-
     @Test
-    void platCourantMenu() {
+    void genererFacture(){
+
+        System.out.println("payerFacture():\n" + facture.genererFacture());
+
+        assertEquals(
+                104.94,
+                facture.sousTotal()
+        );
+        assertEquals(
+                120.654765,
+                facture.total()
+        );
+
     }
 
-    @Test
-    void platSuivantMenu() {
+    @BeforeEach
+    void setUp() {
+        constructClient();
+        constructChef();
+        constructFacture();
+        constructMenu();
+        constructInventory();
+        constructController();
+        populateMenu();
     }
 
-    @Test
-    void platPrecedentMenu()
-    {
-    }
 }

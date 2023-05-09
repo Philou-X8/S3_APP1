@@ -44,7 +44,7 @@ public class Controller {
         }
     }
     public void platCourantMenu(){
-        menu.platCourant();
+        System.out.println(menu.platCourant());
     }
     public void platSuivantMenu(){
         try{
